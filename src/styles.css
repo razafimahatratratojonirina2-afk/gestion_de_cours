@@ -1,0 +1,43 @@
+:root{--bg:#f6f8fc;--card:#fff;--ink:#222a44;--muted:#6b7392;--blue:#2447b8;--red:#d2434f;--line:#d9e2f3;--ok:#1f8a5b;--warn:#b7791f;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a2c;--card:#1d2540;--ink:#e8ecfa;--muted:#9aa4c8;--blue:#8fa9ff;--red:#ff7b86;--line:#2c3760;--ok:#4fd199;--warn:#e8b35a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141a2c;--card:#1d2540;--ink:#e8ecfa;--muted:#9aa4c8;--blue:#8fa9ff;--red:#ff7b86;--line:#2c3760;--ok:#4fd199;--warn:#e8b35a;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 Newsreader,Georgia,serif;
+ background-image:repeating-linear-gradient(transparent 0 31px,var(--line) 31px 32px);padding-bottom:84px}
+h1,h2,h3,button,label,nav,.num{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+header{padding:20px 20px 14px 56px;border-left:2px solid var(--red);margin-left:28px;background:var(--bg)}
+header h1{margin:0;font-size:1.5rem;color:var(--blue)}
+header p{margin:2px 0 0;color:var(--muted);font-size:.95rem}
+main{max-width:640px;margin:0 auto;padding:12px 16px 24px}
+h2{font-size:1.15rem;margin:22px 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .num{font-size:1.45rem;font-weight:700;color:var(--blue)}
+.stat small{color:var(--muted)}
+.muted{color:var(--muted);font-size:.92rem}
+.tag{display:inline-block;font:500 .8rem "Bricolage Grotesque",sans-serif;padding:1px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+.tag.ok{color:var(--ok);border-color:var(--ok)}.tag.warn{color:var(--warn);border-color:var(--warn)}.tag.bad{color:var(--red);border-color:var(--red)}
+button{font-size:.95rem;border-radius:8px;border:1px solid var(--blue);background:var(--blue);color:#fff;padding:8px 14px;cursor:pointer;min-height:40px}
+button.ghost{background:transparent;color:var(--blue)}
+button.del{background:transparent;color:var(--red);border-color:var(--red)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);z-index:5}
+nav button{flex:1;background:transparent;border:0;border-radius:0;color:var(--muted);padding:12px 4px;min-height:52px}
+nav button.on{color:var(--blue);font-weight:700;box-shadow:inset 0 3px 0 var(--red)}
+dialog{border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);width:min(92vw,460px);padding:16px;max-height:88vh;overflow:auto}
+dialog::backdrop{background:rgba(10,15,35,.5)}
+label{display:block;font-size:.9rem;font-weight:500;margin:10px 0 3px}
+input,select,textarea{width:100%;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);min-height:42px}
+.actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+.pill{display:flex;gap:8px;align-items:center;margin:6px 0}.pill span{flex:1}.pill select{width:auto}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.filters button{background:transparent;color:var(--blue);padding:4px 12px;min-height:34px}.filters button.on{background:var(--blue);color:#fff}
+.empty{text-align:center;color:var(--muted);padding:26px 10px}
+a.wa{color:var(--ok);font:500 .9rem "Bricolage Grotesque",sans-serif}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:76px;background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:99px;font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .2s;z-index:9}
+#toast.show{opacity:1}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
